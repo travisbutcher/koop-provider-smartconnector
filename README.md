@@ -18,7 +18,8 @@ This app relies on a connection to the Smart Connection server for more informat
 
 ## Linking SMART Connect Queries with Service endpoints
 The queries created in SMART connect can be used to create REST endpoints to query the data.
-| Service Name | UUID | Feature Service URL |
+
+| Service Name | UUID | Feature Service |
 | --- | --- | --- |
 |  carnivore | 'd1eb8f59-6135-4d45-9b69-1945cabf4af2' | http://<app url>/carnivore/FeatureServer/0 |
 

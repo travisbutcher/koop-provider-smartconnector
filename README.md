@@ -12,7 +12,7 @@ This app relies on a connection to the Smart Connection server for more informat
 | `routes.js` | Optional | Specifies additional routes to be handled by this provider |
 | `controller.js` | Optional | Handles additional routes specified in `routes.js` |
 | `server.js` | Optional | Reference implementation for the provider |
-| `mappings\types.js` | Mandatory | Provider mappings to the Queries in SMART Connect |
+| `mappings/types.js` | Mandatory | Provider mappings to the Queries in SMART Connect |
 | `test/model-test.js` | Optional | tests the `getData` function on the model |
 | `test/fixtures/input.json` | Optional | a sample of the raw input from the 3rd party API |
 | `config/default.json` | Optional | used for advanced configuration, usually API keys. |

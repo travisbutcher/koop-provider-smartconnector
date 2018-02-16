@@ -1,0 +1,11 @@
+#!/bin/bash
+git config user.name "$GIT_USER"
+git config user.email "$GIT_EMAIL"
+git checkout master
+git submodule foreach git checkout master && git pull
+git add .
+git commit -m 'update pointers'
+if [ $? = 0 ]; then
+  set -e
+  git push -u "https://$GH_TOKEN@github.com/koop-provider-smartconnector.git" master >/dev/null 2>&1
+fi

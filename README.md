@@ -1,5 +1,7 @@
 # Koop Provider for SMART Connect
-This Koop (https://github.com/koopjs/koop) provider is designed for use with the WCS Smart Connect Platform to leverage the data from the system to be displayed in Geoservices (http://geoservices.github.io/) web specifactions.
+This Koop provider is designed for use with the WCS Smart Connect Platform.
+
+[Koop](https://github.com/koopjs/koop) is a highly-extensible Javascript toolkit for connecting incompatible spatial APIs. Out of the box it exposes a Node.js server that can translate [GeoJSON](http://geojson.org/) into the [Geoservices specification](https://geoservices.github.io) supported by the [ArcGIS](http://www.esri.com/arcgis/about-arcgis) family of products. 
 
 This app relies on a connection to the Smart Connection server for more information see (https://app.assembla.com/spaces/smart-cs/wiki/SMART_Connect)
 

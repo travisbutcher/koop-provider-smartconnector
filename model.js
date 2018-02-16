@@ -1,7 +1,7 @@
 'use strict'
 // Cache configured time or 1 hour
 const config = require('config')
-const ttl = (config.craigslist && config.craigslist.ttl) || 60 * 60
+const ttl = (config.smart && config.smart.ttl) || 60 * 60
 const request = require('request').defaults({gzip: true})
 const types = require('./mappings/types.js')
 var tokenExpires = 0;
@@ -9,7 +9,7 @@ var token = null;
 const basic = '<YOUR TOKEN HERE>'
 
 module.exports = function () {
-  // This is our one public function it's job its to fetch data from craigslist and return as a feature collection
+  // This is our one public function it's job its to fetch data from SMART and return as a feature collection
   this.getData = function (req, callback) {
     if(Date.now() > tokenExpires)
     {
@@ -28,8 +28,6 @@ module.exports = function () {
 }
 
 function requestData(type, callback){
-    //console.log(req.params.id);
-    //const type = req.params.id;
     var request = require("request");
     var requestURL = `https://connecttest.smartconservationtools.org:8443/server/api/query/${types[type]}`;
     var options = { method: 'GET',
@@ -76,7 +74,7 @@ function getToken(callback){
     });
 }
 
-// Map accross all elements from a Craigslist respsonse and translate it into a feature collection
+// Map accross all elements from a SMART respsonse and translate it into a feature collection
 function translate (data) {
   // translate the API response into geojson
   const json = JSON.parse(data)

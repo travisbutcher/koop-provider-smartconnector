@@ -4,6 +4,7 @@ const config = require('config')
 const ttl = (config.smart && config.smart.ttl) || 60 * 60
 const request = require('request').defaults({gzip: true})
 const types = require('./mappings/types.js')
+const connectors = require('./mappings/connectors.js')
 var tokenExpires = 0;
 var token = null;
 const basic = '<YOUR TOKEN HERE>'
@@ -11,25 +12,28 @@ const basic = '<YOUR TOKEN HERE>'
 module.exports = function () {
   // This is our one public function it's job its to fetch data from SMART and return as a feature collection
   this.getData = function (req, callback) {
+
+    //Check to see if the token from SMART has expired.
     if(Date.now() > tokenExpires)
     {
-      console.log('getting token')
-      getToken(function(returnValue) {
+      //Request a new Token from the SMART API
+      getToken(req.params.server,function(returnValue) {
         requestData(req.params.id,function(geoJson){
             callback(null,geoJson);
         });
       });
     }else{
-        requestData(req.params.id,function(geoJson){
+        requestData(req.params.id,req.params.server,function(geoJson){
           callback(null,geoJson);
         });
     }
   }
 }
 
-function requestData(type, callback){
+//Retrieve the data for this query from the SMART Connect Server
+function requestData(type,server, callback){
     var request = require("request");
-    var requestURL = `https://connecttest.smartconservationtools.org:8443/server/api/query/${types[type]}`;
+    var requestURL = `${connectors[server]}/server/api/query/${types[type]}`;
     var options = { method: 'GET',
       url: requestURL,
       qs: 
@@ -39,6 +43,8 @@ function requestData(type, callback){
       headers: 
        { } 
        };
+
+    //Determine if the Request was valid
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     request(options, function (error, response, body) {
       if (error) {
@@ -51,10 +57,10 @@ function requestData(type, callback){
     });
 }
 
-function getToken(callback){
+function getToken(server,callback){
     var request = require("request");
     var options = { method: 'POST',
-    url: 'https://connecttest.smartconservationtools.org:8443/server/api/sharedlink/token/',
+    url: `${connectors[server]}/server/api/sharedlink/token/`,
     headers: 
     {
       'content-type': 'application/json',

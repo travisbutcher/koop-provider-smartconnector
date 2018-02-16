@@ -15,11 +15,14 @@ const config = require('config')
 const port = config.port || 8080
 koop.server.listen(port)
 
+// validate route for connections
+app.use('/:server/:id', model);
+
 const message = `
 
 Koop Smart-Connect is listening on ${port}
 
-Try it out in your browswer: http://localhost:${port}/smart_connect/FeatureServer/0/query
+Try it out in your browswer: http://localhost:${port}/smart_connect/<connection name>/<query name>/FeatureServer/0/query
 
 Press control + c to exit
 `

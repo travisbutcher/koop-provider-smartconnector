@@ -1,98 +1,38 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "koop-provider-smartconnect@^2.0.0",
-        "scope": null,
-        "escapedName": "koop-provider-smartconnect",
-        "name": "koop-provider-smartconnect",
-        "rawSpec": "^2.0.0",
-        "spec": ">=2.0.0 <3.0.0",
-        "type": "range"
-      },
-      "C:\\Users\\trav5516\\Documents\\GitHub\\esri_smart_connect\\koop-smart-connect-app"
-    ]
-  ],
-  "_from": "koop-provider-smartconnect@>=2.0.0 <3.0.0",
-  "_id": "koop-provider-smartconnect@2.0.1",
-  "_inCache": true,
-  "_location": "/koop-provider-smartconnect",
-  "_nodeVersion": "6.10.0",
-  "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/koop-provider-smartconnect-2.0.1.tgz_1491168225790_0.40019511710852385"
-  },
-  "_npmUser": {
-    "name": "dmfenton",
-    "email": "dfenton@esri.com"
-  },
-  "_npmVersion": "3.10.10",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "koop-provider-smartconnect@^2.0.0",
-    "scope": null,
-    "escapedName": "koop-provider-smartconnect",
-    "name": "koop-provider-smartconnect",
-    "rawSpec": "^2.0.0",
-    "spec": ">=2.0.0 <3.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/koop-provider-smartconnect/-/koop-provider-smartconnect-2.0.1.tgz",
-  "_shasum": "8ae886114994db207aa4a89252b403ac61dc8d5e",
-  "_shrinkwrap": null,
-  "_spec": "koop-provider-smartconnect@^2.0.0",
-  "_where": "C:\\Users\\trav5516\\Documents\\GitHub\\esri_smart_connect\\koop-smart-connect-app",
-  "author": {
-    "name": "Daniel Fenton"
-  },
-  "bugs": {
-    "url": "https://github.com/travisbutcher/koop-provider-smartconnect/issues"
-  },
-  "dependencies": {
-    "config": "^1.25.1",
-    "koop": "^3.4.0",
-    "request": "^2.72.0"
-  },
-  "description": "A smartconnect provider for koop ",
-  "devDependencies": {},
+  "name": "koop-provider-smartconnect",
+  "version": "0.0.2",
+  "description": "A SMART Connect provider for koop ",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dist": {
-    "shasum": "8ae886114994db207aa4a89252b403ac61dc8d5e",
-    "tarball": "https://registry.npmjs.org/koop-provider-smartconnect/-/koop-provider-smartconnect-2.0.1.tgz"
+  "scripts": {
+    "docker-build": "docker build -t koop-provider-smartconnect .",
+    "docker-start": "docker run -it -p 8080:8080 koop-provider-smartconnect",
+    "test": "mocha test/"
   },
-  "gitHead": "dfd856b758d11f0f01fa552fb472fd4312601aaa",
-  "homepage": "https://github.com/travisbutcher/koop-provider-smartconnect",
-  "keywords": [
-    "koop",
-    "provider",
-    "real estate",
-    "smartconnect",
-    "apartment listings"
-  ],
-  "license": "Apache-2.0",
-  "main": "index.js",
-  "maintainers": [
-    {
-      "name": "dmfenton",
-      "email": "dfenton@esri.com"
-    }
-  ],
-  "name": "koop-provider-smartconnect",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
+  "dependencies": {
+    "async": "^1.5.2",
+    "config": "^1.25.1",
+    "lodash": "^4.17.4",
+    "proj4": "^2.3.17"
+  },
+  "author": "Travis Butcher",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "supertest": "~0.11.0",
+    "should": "~4.0.4",
+    "sinon": "~1.10.3"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/%travisbutcher/koop-provider-smartconnect.git"
+    "url": "https://github.com:travisbutcher/koop-provider-smartconnect.git"
   },
-  "scripts": {
-    "docker-build": "docker build -t koop-smartconnect .",
-    "docker-start": "docker run -it -p 8080:8080 koop-smartconnect",
-    "start": "node server.js"
+  "bugs": {
+    "url": "https://github.com:travisbutcher/koop-provider-smartconnect/issues"
   },
-  "version": "2.0.1"
+  "homepage": "https://github.com:travisbutcher/koop-provider-smartconnect",
+  "keywords": [
+    "koop"
+  ]
 }

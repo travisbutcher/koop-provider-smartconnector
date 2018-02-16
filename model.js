@@ -6,7 +6,7 @@ const request = require('request').defaults({gzip: true})
 const types = require('./mappings/types.js')
 var tokenExpires = 0;
 var token = null;
-const basic = 'dGJ1dGNoZXJAZXNyaS5jb206dGJ1dGNoZXJAZXNyaS5jb20='
+const basic = '<YOUR TOKEN HERE>'
 
 module.exports = function () {
   // This is our one public function it's job its to fetch data from craigslist and return as a feature collection

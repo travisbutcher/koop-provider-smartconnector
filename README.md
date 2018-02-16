@@ -23,6 +23,13 @@ The queries created in SMART connect can be used to create REST endpoints to que
 | --- | --- | --- |
 |  carnivore | 'd1eb8f59-6135-4d45-9b69-1945cabf4af2' | http://localhost:8080/carnivore/FeatureServer/0 |
 
+## Generate a Token for SMART Connect
+To work with your services in SMART you will need to provide a token to the system for authentication.  For information on generating the token see:  https://app.assembla.com/spaces/smart-cs/wiki/SMART_Connect_API_Documentation
+This token is added to the model.js file as the basic variable.
+
+## Using the ArcGIS Online System
+The system relies on the GeoJSON services to be served up from the SMART Connect it does not currently work with Raster (Image) Data from SMART or Tabluar only outputs.
+
 
 ## Test it out
 Run server:

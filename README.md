@@ -21,7 +21,7 @@ The queries created in SMART connect can be used to create REST endpoints to que
 
 | Service Name | UUID | Feature Service |
 | --- | --- | --- |
-|  carnivore | 'd1eb8f59-6135-4d45-9b69-1945cabf4af2' | http://<app url>/carnivore/FeatureServer/0 |
+|  carnivore | 'd1eb8f59-6135-4d45-9b69-1945cabf4af2' | http://localhost:8080/carnivore/FeatureServer/0 |
 
 
 ## Test it out
@@ -37,10 +37,10 @@ Tests:
 
 ## With Docker
 
-- `docker build -t koop-provider-sample .`
-- `docker run -it -p 8080:8080 koop-provider-sample`
+- `docker build -t koop-provider-smartconnect .`
+- `docker run -it -p 8080:8080 koop-provider-smartconnect`
 
 ## Publish to npm
 - run `npm init` and update the fields
-  - Choose a name like `koop-provider-foo`
+  - Choose a name like `koop-provider-smartconnect`
 - run `npm publish`
